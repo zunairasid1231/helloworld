@@ -28,7 +28,7 @@ jobs:
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v1'
       with:
-        project_id: global-pagoda-368419
+        project_id: 965665282297
         workload_identity_provider: 'projects/965665282297/locations/global/workloadIdentityPools/github-provide/providers/github-provider'
         service_account: 'githubaction@global-pagoda-368419.iam.gserviceaccount.com'
 
@@ -55,4 +55,4 @@ jobs:
 #      run: |-
 #        docker push "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
     - name: Deploy
-      run: gcloud compute instances list
+      run: gcloud version
