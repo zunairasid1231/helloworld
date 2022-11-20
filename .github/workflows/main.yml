@@ -54,5 +54,5 @@ jobs:
 #    - name: Publish
 #      run: |-
 #        docker push "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
-    - name: Deploy
-      run: gcloud compute instances list --project global-pagoda-368419
+ #   - name: Deploy
+    -  run: gcloud compute instances list #--project global-pagoda-368419
