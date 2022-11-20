@@ -23,12 +23,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     
-    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
       with:
         version: '276.0.0'
         service_account_email: ${{ secrets.GCP_SA_EMAIL }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
-    - run: gsutil -m rsync -d -c -r public gs://my-gcs-bucket
+    - run: gsutil -m rsync -d -c -r public gs://www.spacemoon.com
     # Configure Workload Identity Federation and generate an access token.
     #- id: 'auth'
     #  name: 'Authenticate to Google Cloud'
