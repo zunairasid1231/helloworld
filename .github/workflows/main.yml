@@ -40,21 +40,22 @@ jobs:
     # helper for authentication
     - run: |-
         gcloud --quiet auth configure-docker
+    -  run: gcloud compute instances  get-iam-policy instance-1  --zone  us-central1-a  --project global-pagoda-368419     
     # Build the Docker image
-    - name: Build
-      run: |-
-        docker build --tag "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA" .
+#    - name: Build
+#      run: |-
+#        docker build --tag "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA" .
     # Push the Docker image to Google Container Registry
-    - name: Publish
-      run: |-
-        docker push "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
-    - name: Deploy
-      run: |-
-        gcloud compute instances update-container "$GCE_INSTANCE" \
-          --zone "$GCE_INSTANCE_ZONE" \
-          --container-image "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
+#    - name: Publish
+#      run: |-
+#        docker push "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
+#    - name: Deploy
+#      run: |-
+#        gcloud compute instances update-container "$GCE_INSTANCE" \
+#          --zone "$GCE_INSTANCE_ZONE" \
+#          --container-image "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
           
-
+########################################################
     # Alternative option - authentication via credentials json
     # - id: 'auth'
     #   uses: 'google-github-actions/auth@v1'
@@ -79,7 +80,7 @@ jobs:
 #        docker push "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
  #   - name: Deploy
 
-#-  run: gcloud storage ls gs://www.spacemoon.com --project global-pagoda-368419   --quiet   #gcloud compute instances  get-iam-policy spacemoon-backend --zone us-east4-c   --project global-pagoda-368419 #gcloud compute instances list --project global-pagoda-368419
+#-  run: gcloud compute instances  get-iam-policy spacemoon-backend --zone us-east4-c   --project global-pagoda-368419 #gcloud compute instances list --project global-pagoda-368419
 
 
 
