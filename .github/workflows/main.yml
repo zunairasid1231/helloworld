@@ -55,4 +55,4 @@ jobs:
 #      run: |-
 #        docker push "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
  #   - name: Deploy
-    -  run: gcloud --project global-pagoda-368419 alpha storage ls gs://www.spacemoon.com #gcloud compute instances  get-iam-policy spacemoon-backend --zone us-east4-c   --project global-pagoda-368419 #gcloud compute instances list --project global-pagoda-368419
+    -  run: gsutil --project global-pagoda-368419   ls gs://www.spacemoon.com #gcloud compute instances  get-iam-policy spacemoon-backend --zone us-east4-c   --project global-pagoda-368419 #gcloud compute instances list --project global-pagoda-368419
