@@ -29,7 +29,7 @@ jobs:
       uses: 'google-github-actions/auth@v1'
       with:
         project_id: global-pagoda-368419
-        workload_identity_provider: 'projects/global-pagoda-368419/locations/global/workloadIdentityPools/github-provide/providers/github-provider'
+        workload_identity_provider: 'projects/965665282297/locations/global/workloadIdentityPools/github-provide/providers/github-provider'
         service_account: 'githubaction@global-pagoda-368419.iam.gserviceaccount.com'
 
     # Alternative option - authentication via credentials json
