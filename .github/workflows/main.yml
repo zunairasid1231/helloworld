@@ -22,10 +22,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    
-    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
+
+    # Setup gcloud CLI
+    - name: Set up Cloud SDK
+   #   uses: google-github-actions/setup-gcloud@v1    
+    - uses: google-github-actions/setup-gcloud@v1
       with:
-        version: '276.0.0'
+        #version: '276.0.0'
         service_account_email: ${{ secrets.GCP_SA_EMAIL }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
     - run: gsutil -m rsync -d -c -r public gs://www.spacemoon.com
