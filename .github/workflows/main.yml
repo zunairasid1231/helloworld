@@ -22,15 +22,21 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-
-    # Configure Workload Identity Federation and generate an access token.
-    - id: 'auth'
-      name: 'Authenticate to Google Cloud'
-      uses: 'google-github-actions/auth@v1'
+    
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
-        project_id: 965665282297
-        workload_identity_provider: 'projects/965665282297/locations/global/workloadIdentityPools/github-provide/providers/github-provider'
-        service_account: 'githubaction@global-pagoda-368419.iam.gserviceaccount.com'
+        version: '276.0.0'
+        service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+    - run: gsutil -m rsync -d -c -r public gs://my-gcs-bucket
+    # Configure Workload Identity Federation and generate an access token.
+    #- id: 'auth'
+    #  name: 'Authenticate to Google Cloud'
+    #  uses: 'google-github-actions/auth@v1'
+    #  with:
+    #    project_id: 965665282297
+    #    workload_identity_provider: 'projects/965665282297/locations/global/workloadIdentityPools/github-provide/providers/github-provider'
+    #    service_account: 'githubaction@global-pagoda-368419.iam.gserviceaccount.com'
 
     # Alternative option - authentication via credentials json
     # - id: 'auth'
@@ -39,8 +45,8 @@ jobs:
     #     credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
     # Setup gcloud CLI
-    - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@v1
+   # - name: Set up Cloud SDK
+   #   uses: google-github-actions/setup-gcloud@v1
 
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
@@ -55,4 +61,8 @@ jobs:
 #      run: |-
 #        docker push "gcr.io/$PROJECT_ID/$GCE_INSTANCE-image:$GITHUB_SHA"
  #   - name: Deploy
-    -  run: gcloud storage ls gs://www.spacemoon.com --project global-pagoda-368419   --quiet   #gcloud compute instances  get-iam-policy spacemoon-backend --zone us-east4-c   --project global-pagoda-368419 #gcloud compute instances list --project global-pagoda-368419
+
+#-  run: gcloud storage ls gs://www.spacemoon.com --project global-pagoda-368419   --quiet   #gcloud compute instances  get-iam-policy spacemoon-backend --zone us-east4-c   --project global-pagoda-368419 #gcloud compute instances list --project global-pagoda-368419
+
+
+
