@@ -45,7 +45,7 @@ jobs:
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
     - run: |-
-        gcloud auth login ----cred-file ${{ secrets.SERVICE_ACCOUNT_KEY }}
+        gcloud auth login --cred-file=${{ secrets.SERVICE_ACCOUNT_KEY }}
     # Build the Docker image
 #    - name: Build
 #      run: |-
