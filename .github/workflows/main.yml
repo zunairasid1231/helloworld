@@ -23,7 +23,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       
-    - uses: google-github-actions/setup-gcloud@master
+    - uses: google-github-actions/setup-gcloud@main
       with:
         version: '276.0.0'
         service_account_email: "git-deploy@primeval-sweep-238715.iam.gserviceaccount.com"
