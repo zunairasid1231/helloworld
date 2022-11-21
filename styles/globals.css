@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Caslon";
+  src: url('../public/fonts/caslon-bold-regular_1_g8v4r/Caslon\ Bold\ Regular/Caslon\ Bold\ Regular.otf');
+}
+
+@font-face {
+  font-family: "Comfortaa Bold";
+  src: url('../public/fonts/Comfortaa/static/Comfortaa-Bold.ttf');
+}
+
+@font-face {
+  font-family: "Comfortaa Regular";
+  src: url('../public/fonts/Comfortaa/static/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Comfortaa Regular";
+  src: url('../public/fonts/Unica_One/UnicaOne-Regular.ttf');
+}
